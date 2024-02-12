@@ -8,7 +8,7 @@ import com.example.lab1.domain.DoDoItem
 import com.example.lab1.domain.GetDoDoItemListUseCase
 
 
-class MainViewModel(): ViewModel() {
+class MainViewModel: ViewModel() {
 
     private val getDoDoItemListUseCase=GetDoDoItemListUseCase(RepositoryImpl())
 

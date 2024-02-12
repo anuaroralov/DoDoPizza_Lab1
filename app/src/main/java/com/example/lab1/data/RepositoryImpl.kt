@@ -6,7 +6,7 @@ import com.example.lab1.domain.Repository
 import com.example.lab1.domain.enums.PizzaDough
 import com.example.lab1.domain.enums.PizzaSize
 
-class RepositoryImpl():Repository {
+class RepositoryImpl:Repository {
 
     override fun getDoDoItemList(): List<DoDoItem> {
         return listOf(

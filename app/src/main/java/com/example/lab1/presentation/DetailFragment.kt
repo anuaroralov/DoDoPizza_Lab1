@@ -24,10 +24,6 @@ class DetailFragment : Fragment() {
     private val binding: FragmentDetailBinding
         get() = _binding ?: throw RuntimeException("FragmentDetailBinding is null")
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,8 +36,8 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if(args.doDoItem is DoDoItem.Combo){
             with(binding){
-                chipGroup1.visibility=View.INVISIBLE
-                chipGroup2.visibility=View.INVISIBLE
+                chipGroup1.visibility=View.GONE
+                chipGroup2.visibility=View.GONE
                 val item=args.doDoItem as DoDoItem.Combo
                 tvName.text=item.name
                 tvDescription.text=item.description

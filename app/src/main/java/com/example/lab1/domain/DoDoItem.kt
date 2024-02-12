@@ -4,7 +4,7 @@ import com.example.lab1.domain.enums.PizzaDough
 import com.example.lab1.domain.enums.PizzaSize
 import java.io.Serializable
 
-sealed class DoDoItem():Serializable{
+sealed class DoDoItem:Serializable{
 
     data class Combo(
         val id:Int,

@@ -25,10 +25,6 @@ class HomeFragment : Fragment(){
 
     private lateinit var listAdapter:MainListAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -61,6 +57,12 @@ class HomeFragment : Fragment(){
         })
 
         viewModel.dodoItems.observe(viewLifecycleOwner){
+            if(it.isEmpty()){
+                binding.imageView.visibility=(View.VISIBLE)
+            }
+            else{
+                binding.imageView.visibility=(View.GONE)
+            }
             listAdapter.submitList(it)
         }
     }
