@@ -6,19 +6,19 @@ import java.io.Serializable
 
 sealed class DoDoItem():Serializable{
 
-    class Combo(
+    data class Combo(
         val id:Int,
         val name:String,
         val description:String,
         val imgSource:Int,
         val price:Int): Serializable,DoDoItem()
 
-    class Pizza(
+    data class Pizza(
         val id:Int,
         val name:String,
         val description:String,
         val imgSource:Int,
-        val size: PizzaSize=PizzaSize.LITTLE,
-        val dough: PizzaDough=PizzaDough.TRADITIONAL,
-        val price:Int): Serializable,DoDoItem()
+        var size: PizzaSize=PizzaSize.LITTLE,
+        var dough: PizzaDough=PizzaDough.TRADITIONAL,
+        var price:Int): Serializable,DoDoItem()
 }

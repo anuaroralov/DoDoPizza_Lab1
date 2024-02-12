@@ -11,10 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
-        android:background="@drawable/background_pizza_size"
-        app:checkedChip="@id/chip_little"
         android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/background_pizza_size"
+        android:paddingHorizontal="4dp"
+        app:checkedChip="@id/chip_little"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescription"
         app:singleSelection="true">
@@ -25,7 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Маленькая"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:chipCornerRadius="8dp"
+            app:chipMinHeight="40dp"
+            app:layout_constraintHorizontal_weight="1" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_medium"
@@ -33,15 +36,21 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text=" Средняя "
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:chipCornerRadius="8dp"
+            app:chipMinHeight="40dp"
+            app:layout_constraintHorizontal_weight="1" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_big"
             style="@style/CustomChoice"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text=" Большая "
-            android:textSize="20sp" />
+            android:text=" Большая"
+            android:textSize="20sp"
+            app:chipCornerRadius="8dp"
+            app:chipMinHeight="40dp"
+            app:layout_constraintHorizontal_weight="1" />
     </com.google.android.material.chip.ChipGroup>
 
     <com.google.android.material.chip.ChipGroup
@@ -51,8 +60,9 @@
         android:layout_marginHorizontal="12dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/background_pizza_size"
+        android:paddingHorizontal="4dp"
         app:checkedChip="@id/chip_traditional"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chip_group1"
         app:singleSelection="true">
@@ -62,16 +72,20 @@
             style="@style/CustomChoice"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="   Традиционное    "
-            android:textSize="20sp" />
+            android:text="  Традиционное  "
+            android:textSize="20sp"
+            app:chipCornerRadius="8dp"
+            app:chipMinHeight="40dp" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_thin"
             style="@style/CustomChoice"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="        Тонкое        "
-            android:textSize="20sp" />
+            android:text="         Тонкое         "
+            android:textSize="20sp"
+            app:chipCornerRadius="8dp"
+            app:chipMinHeight="40dp" />
 
     </com.google.android.material.chip.ChipGroup>
 
@@ -92,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="VAY PIZZA"
         android:textColor="#000"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -103,9 +117,9 @@
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:layout_marginHorizontal="12dp"
         android:layout_marginTop="16dp"
+        android:text="Description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
@@ -116,7 +130,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_marginBottom="16dp"
-        android:text="Button"
+        android:textSize="16sp"
+        android:text="В КОРЗИНУ ЗА 1000 KZT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
