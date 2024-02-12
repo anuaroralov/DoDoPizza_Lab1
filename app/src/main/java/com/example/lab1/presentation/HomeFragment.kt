@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
 import com.example.lab1.databinding.FragmentHomeBinding
+import com.example.lab1.domain.DoDoItem
 import com.example.lab1.presentation.adapter.MainListAdapter
 
 class HomeFragment : Fragment() {
@@ -37,7 +38,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        listAdapter= MainListAdapter()
+        listAdapter= MainListAdapter{launchDetailFragment(it)}
 
         binding.recyclerView.apply {
             setHasFixedSize(true)
@@ -49,5 +50,9 @@ class HomeFragment : Fragment() {
         viewModel.dodoItems.observe(viewLifecycleOwner){
             listAdapter.submitList(it)
         }
+    }
+
+    private fun launchDetailFragment(item:DoDoItem) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(item))
     }
 }

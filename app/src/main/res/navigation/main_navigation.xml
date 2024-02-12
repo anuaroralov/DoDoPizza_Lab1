@@ -18,5 +18,9 @@
         android:id="@+id/detailFragment"
         android:name="com.example.lab1.presentation.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="doDoItem"
+            app:argType="com.example.lab1.domain.DoDoItem" />
+    </fragment>
 </navigation>

@@ -10,7 +10,7 @@ import com.example.lab1.databinding.ItemPizzaBinding
 import com.example.lab1.domain.DoDoItem
 import java.lang.Exception
 
-class MainListAdapter():
+class MainListAdapter(private val onCoinClickListener:(DoDoItem)->Unit):
     ListAdapter<DoDoItem, DoDoItemViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DoDoItemViewHolder {
@@ -19,13 +19,15 @@ class MainListAdapter():
                 ItemComboBinding.inflate(LayoutInflater.from(parent.context),
                     parent,
                     false
-                )
+                ),
+                onCoinClickListener
             )
             R.layout.item_pizza->DoDoItemViewHolder.PizzaViewHolder(
                 ItemPizzaBinding.inflate(LayoutInflater.from(parent.context),
                     parent,
                     false
-                )
+                ),
+                onCoinClickListener
             )
             else->throw Exception("Invalid viewType")
         }
@@ -39,9 +41,11 @@ class MainListAdapter():
     }
 
     override fun onBindViewHolder(viewHolder: DoDoItemViewHolder, position: Int) {
+
         when(viewHolder){
             is DoDoItemViewHolder.PizzaViewHolder->viewHolder.bind(getItem(position) as DoDoItem.Pizza)
             is DoDoItemViewHolder.ComboViewHolder->viewHolder.bind(getItem(position) as DoDoItem.Combo)
+
         }
     }
 

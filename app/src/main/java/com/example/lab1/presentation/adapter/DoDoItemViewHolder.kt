@@ -8,21 +8,27 @@ import com.example.lab1.domain.DoDoItem
 
 sealed class DoDoItemViewHolder(binding: ViewBinding): RecyclerView.ViewHolder(binding.root) {
 
-    class PizzaViewHolder(private val binding: ItemPizzaBinding): DoDoItemViewHolder(binding){
+    class PizzaViewHolder(private val binding: ItemPizzaBinding, private val onCoinClickListener: (DoDoItem)->Unit): DoDoItemViewHolder(binding){
         fun bind(pizza: DoDoItem.Pizza){
             binding.tvName.text=pizza.name
             binding.tvDescription.text=pizza.description
             binding.tvPrice.text=pizza.price.toString()+" KZT"
             binding.ivImg.setImageResource(pizza.imgSource)
+            binding.root.setOnClickListener{
+                onCoinClickListener(pizza)
+            }
         }
     }
 
-    class ComboViewHolder(private val binding: ItemComboBinding): DoDoItemViewHolder(binding){
+    class ComboViewHolder(private val binding: ItemComboBinding, private val onCoinClickListener: (DoDoItem)->Unit): DoDoItemViewHolder(binding){
         fun bind(combo: DoDoItem.Combo){
             binding.tvName.text=combo.name
             binding.tvDescription.text=combo.description
             binding.tvPrice.text=combo.price.toString()+" KZT"
             binding.ivImg.setImageResource(combo.imgSource)
+            binding.root.setOnClickListener{
+                onCoinClickListener(combo)
+            }
         }
     }
 }
