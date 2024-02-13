@@ -36,8 +36,8 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if(args.doDoItem is DoDoItem.Combo){
             with(binding){
-                chipGroup1.visibility=View.GONE
-                chipGroup2.visibility=View.GONE
+                radioGroup1.visibility=View.GONE
+                radioGroup2.visibility=View.GONE
                 val item=args.doDoItem as DoDoItem.Combo
                 tvName.text=item.name
                 tvDescription.text=item.description
@@ -57,28 +57,28 @@ class DetailFragment : Fragment() {
                 viewModel.price.observe(viewLifecycleOwner){
                     button.text= String.format("В КОРЗИНУ ЗА %d KZT",it)
                 }
-                chipGroup1.setOnCheckedChangeListener { _, checkedId ->
+                radioGroup1.setOnCheckedChangeListener { _, checkedId ->
                     when (checkedId) {
-                        R.id.chip_little -> {
+                        R.id.rb_little -> {
                             viewModel.changePrice(item.price)
                             item.size=PizzaSize.LITTLE
                         }
-                        R.id.chip_medium -> {
+                        R.id.rb_medium -> {
                             viewModel.changePrice(item.price+1000)
                             item.size=PizzaSize.MEDIUM
                         }
-                        R.id.chip_big -> {
+                        R.id.rb_big -> {
                             viewModel.changePrice(item.price+2000)
                             item.size=PizzaSize.BIG
                         }
                     }
                 }
-                chipGroup2.setOnCheckedChangeListener { _, checkedId ->
+                radioGroup2.setOnCheckedChangeListener { _, checkedId ->
                     when (checkedId) {
-                        R.id.chip_thin -> {
+                        R.id.rb_thin -> {
                             item.dough=PizzaDough.THIN
                         }
-                        R.id.chip_traditional -> {
+                        R.id.rb_traditional -> {
                             item.dough=PizzaDough.TRADITIONAL
                         }
                     }
